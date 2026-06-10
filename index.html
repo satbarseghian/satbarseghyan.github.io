@@ -12,32 +12,81 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;overflow-x:hidden}
 
-.top-nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;opacity:0;animation:navIn .6s 2.4s forwards}
+.top-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.25rem 3rem;border-bottom:1px solid var(--border);
+  background:var(--bg);position:sticky;top:0;z-index:100;
+  opacity:0;animation:navIn .6s 1.8s forwards;
+}
 .nav-name{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mid)}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--black)}
 
-#hero{display:grid;grid-template-rows:1fr auto;min-height:calc(100vh - 57px);border-bottom:1px solid var(--border);overflow:hidden}
-.hero-main{padding:5rem 3rem 3rem;display:flex;flex-direction:column;justify-content:center}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,13vw,10rem);line-height:.88;letter-spacing:.02em;color:var(--black);margin-bottom:2.5rem;overflow:hidden}
-.hero-name-line{display:block;opacity:0;transform:translateY(100%)}
-.hero-name-line:nth-child(1){animation:lineIn .8s .3s cubic-bezier(.16,1,.3,1) forwards}
-.hero-name-line:nth-child(2){animation:lineIn .8s .55s cubic-bezier(.16,1,.3,1) forwards}
-.hero-name span{color:var(--accent)}
-.hero-tracks{display:flex;gap:1rem;flex-wrap:wrap}
-.track-chip{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--mid);text-decoration:none;transition:border-color .25s,color .25s,transform .25s;opacity:0}
-.track-chip:nth-child(1){animation:chipIn .5s 1s forwards}
-.track-chip:nth-child(2){animation:chipIn .5s 1.2s forwards}
-.track-chip:nth-child(3){animation:chipIn .5s 1.4s forwards}
+/* HERO */
+#hero{
+  display:flex;flex-direction:column;
+  min-height:calc(100vh - 57px);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.hero-main{
+  flex:1;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;padding:3rem;
+}
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  line-height:.88;letter-spacing:.02em;
+  margin-bottom:3rem;
+}
+.hero-name-top{
+  display:block;
+  font-size:clamp(4rem,12vw,11rem);
+  color:var(--black);
+  opacity:0;transform:translateY(60px);
+  animation:lineIn .9s .2s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-name-bot{
+  display:block;
+  font-size:clamp(4rem,12vw,11rem);
+  color:var(--accent);
+  opacity:0;transform:translateY(60px);
+  animation:lineIn .9s .45s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-tracks{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.track-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'DM Mono',monospace;font-size:.62rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 16px;border:1px solid var(--border);
+  color:var(--mid);text-decoration:none;
+  transition:border-color .25s,color .25s,transform .25s;
+  opacity:0;
+}
+.track-chip:nth-child(1){animation:chipIn .5s .9s forwards}
+.track-chip:nth-child(2){animation:chipIn .5s 1.05s forwards}
+.track-chip:nth-child(3){animation:chipIn .5s 1.2s forwards}
 .track-chip:hover{border-color:var(--black);color:var(--black);transform:translateY(-2px)}
 .dot{width:6px;height:6px;border-radius:50%}
 .dd{background:var(--accent)}.de{background:#7C3AED}.du{background:#DC2626}
-.hero-foot{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem;opacity:0;animation:slideUp .6s 1.7s forwards}
+
+.hero-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 3rem;border-top:1px solid var(--border);
+  flex-wrap:wrap;gap:1rem;
+  opacity:0;animation:slideUp .6s 1.4s forwards;
+}
 .hero-bio{font-size:.82rem;color:var(--gray);max-width:520px;line-height:1.7}
-.status-tag{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:6px 14px;border:1px solid var(--accent);white-space:nowrap;animation:pulse 3s 2.5s infinite}
+.status-tag{
+  font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);
+  padding:6px 14px;border:1px solid var(--accent);white-space:nowrap;
+  animation:pulse 3s 2.2s infinite;
+}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
+/* SECTIONS */
 .sec{max-width:1100px;margin:0 auto;padding:6rem 3rem}
 .sec-hd{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:1.5rem;margin-bottom:3rem;border-bottom:1px solid var(--border)}
 .sec-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray)}
@@ -47,8 +96,13 @@ body{background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;ov
 .grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g1{grid-template-columns:1fr}
 
-.card{background:var(--bg);position:relative;cursor:pointer;transition:background .2s,transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
-.card:hover{background:#eceae4;transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.07);z-index:2}
+.card{background:var(--bg);position:relative;transition:background .2s,transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+.card.clickable{cursor:pointer}
+.card.clickable:hover{background:#eceae4;transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.07);z-index:2}
+.card.clickable:hover .ctitle{color:var(--accent)}
+.card.clickable:hover .carr{color:var(--accent);transform:translate(3px,-3px)}
+.card.clickable:hover .ctag{border-color:#c8c4bc;color:var(--mid)}
+.card.static{cursor:default}
 .card.wide{grid-column:span 2}
 .card-pad{padding:2rem}
 .cbadge{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;display:inline-block;margin-bottom:.85rem;border:1px solid}
@@ -60,14 +114,11 @@ body{background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;ov
 .bx{color:var(--gray);border-color:var(--border);background:var(--bg)}
 .ctrack{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
 .ctitle{font-family:'DM Serif Display',Georgia,serif;font-size:1.15rem;line-height:1.2;color:var(--black);margin-bottom:.6rem;transition:color .2s}
-.card:hover .ctitle{color:var(--accent)}
 .card.wide .ctitle{font-size:1.5rem}
 .cdesc{font-size:.78rem;color:var(--mid);line-height:1.75;margin-bottom:1rem}
 .ctags{display:flex;flex-wrap:wrap;gap:5px}
 .ctag{font-family:'DM Mono',monospace;font-size:.57rem;padding:2px 8px;border:1px solid var(--border);color:var(--gray);transition:border-color .2s,color .2s}
-.card:hover .ctag{border-color:#c8c4bc;color:var(--mid)}
 .carr{position:absolute;top:2rem;right:2rem;color:var(--border);font-size:.9rem;transition:color .2s,transform .3s}
-.card:hover .carr{color:var(--accent);transform:translate(3px,-3px)}
 
 .stage{background:var(--surface);border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;justify-content:center;align-items:flex-end;gap:2.5rem;flex-wrap:wrap;overflow:hidden}
 .macbook{width:440px;flex-shrink:0}
@@ -98,16 +149,16 @@ body{background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;ov
 @keyframes scroll2{0%{transform:translateY(0)}10%{transform:translateY(0)}45%{transform:translateY(calc(-100% + 230px))}55%{transform:translateY(calc(-100% + 230px))}90%{transform:translateY(0)}100%{transform:translateY(0)}}
 @keyframes scroll3{0%{transform:translateY(0)}10%{transform:translateY(0)}45%{transform:translateY(calc(-100% + 240px))}55%{transform:translateY(calc(-100% + 240px))}90%{transform:translateY(0)}100%{transform:translateY(0)}}
 
-.skills-block{background:var(--black);padding:5rem 3rem}
+.skills-block{background:#1a1a1a;padding:5rem 3rem}
 .skills-inner{max-width:1100px;margin:0 auto}
 .skills-hed{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:#f0ede8;margin-bottom:2rem;letter-spacing:.02em}
 .skills-hed span{color:var(--accent)}
-.skgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a1a1a;border:1px solid #1a1a1a}
-.skcol{background:var(--black);padding:1.4rem}
-.sklabel{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.15em;text-transform:uppercase;color:#2a2a2a;margin-bottom:.8rem}
-.skitem{font-size:.75rem;color:#444;padding:4px 0;border-bottom:1px solid #0f0f0f;transition:color .2s,padding-left .2s}
+.skgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2a2a2a;border:1px solid #2a2a2a}
+.skcol{background:#1a1a1a;padding:1.4rem}
+.sklabel{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.15em;text-transform:uppercase;color:#666;margin-bottom:.8rem}
+.skitem{font-size:.78rem;color:#aaa;padding:5px 0;border-bottom:1px solid #222;transition:color .15s,padding-left .2s}
 .skitem:last-child{border-bottom:none}
-.skcol:hover .skitem{color:#666;padding-left:4px}
+.skcol:hover .skitem{color:#ccc;padding-left:5px}
 
 .about-wrap{max-width:1100px;margin:0 auto;padding:6rem 3rem;display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:center;border-bottom:1px solid var(--border)}
 .about-hed{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5.5vw,4.5rem);line-height:.95;color:var(--black)}
@@ -123,21 +174,25 @@ body{background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;ov
 .acv a:hover{text-decoration:underline}
 
 .contact-wrap{background:var(--black);padding:6rem 3rem}
-.contact-inner{max-width:1100px;margin:0 auto}
-.contact-hed{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);line-height:.88;color:#f0ede8;margin-bottom:2rem}
+.contact-inner{max-width:1100px;margin:0 auto;text-align:center}
+.contact-hed{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,10vw,9rem);
+  line-height:.85;color:#f0ede8;margin-bottom:2.5rem;
+}
 .contact-hed span{color:var(--accent)}
-.clinks{display:flex;gap:.75rem;flex-wrap:wrap}
-.cbtn{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border:1px solid #1e1e1e;color:#555;text-decoration:none;transition:border-color .2s,color .2s,transform .2s}
+.clinks{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+.cbtn{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border:1px solid #2a2a2a;color:#666;text-decoration:none;transition:border-color .2s,color .2s,transform .2s}
 .cbtn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .cbtn.p{background:var(--accent);color:#fff;border-color:var(--accent)}
 .cbtn.p:hover{background:#1d4ed8;transform:translateY(-2px)}
 
-footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem;display:flex;justify-content:space-between}
-.ft{font-family:'DM Mono',monospace;font-size:.56rem;color:#1e1e1e;text-transform:uppercase;letter-spacing:.1em}
+footer{background:var(--black);border-top:1px solid #141414;padding:1.25rem 3rem;display:flex;justify-content:space-between}
+.ft{font-family:'DM Mono',monospace;font-size:.56rem;color:#2a2a2a;text-transform:uppercase;letter-spacing:.1em}
 
 @keyframes navIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes lineIn{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes lineIn{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
 @keyframes chipIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
@@ -162,8 +217,8 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
 <section id="hero">
   <div class="hero-main">
     <div class="hero-name">
-      <span class="hero-name-line">SAT</span>
-      <span class="hero-name-line"><span>BARSE<br>GHYAN</span></span>
+      <span class="hero-name-top">SAT</span>
+      <span class="hero-name-bot">BARSEGHYAN</span>
     </div>
     <div class="hero-tracks">
       <a class="track-chip" href="#data"><span class="dot dd"></span>Data &amp; Research</a>
@@ -184,8 +239,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
     <span class="sec-label sl-d">Curious about people. Trained on data.</span>
   </div>
   <div class="grid g2">
-    <div class="card wide reveal stagger-1">
-      <div class="carr">&#x2197;</div>
+    <div class="card wide static reveal stagger-1">
       <div class="card-pad">
         <span class="cbadge bi">Independent Research / St. Olaf College</span>
         <div class="ctrack sl-d">Data &amp; Research / Featured</div>
@@ -198,9 +252,8 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
         </div>
       </div>
     </div>
-    <div class="card reveal stagger-2" style="padding:0">
+    <div class="card static reveal stagger-2" style="padding:0">
       <div class="card-pad" style="padding-bottom:1.25rem">
-        <div class="carr">&#x2197;</div>
         <span class="cbadge bm">Managerial Role / DiSCO</span>
         <div class="ctrack sl-d">Data &amp; Research</div>
         <div class="ctitle">DiSCO Spring Semester / Usage Analytics</div>
@@ -222,8 +275,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
         </div>
       </div>
     </div>
-    <div class="card reveal stagger-3">
-      <div class="carr">&#x2197;</div>
+    <div class="card static reveal stagger-3">
       <div class="card-pad">
         <span class="cbadge bn">Independent Study / CSCI 298</span>
         <div class="ctrack sl-d">Data &amp; Research</div>
@@ -235,8 +287,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
         </div>
       </div>
     </div>
-    <div class="card reveal stagger-4">
-      <div class="carr">&#x2197;</div>
+    <div class="card static reveal stagger-4">
       <div class="card-pad">
         <span class="cbadge bc">Stats 172</span>
         <div class="ctrack sl-d">Data &amp; Research</div>
@@ -259,7 +310,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
     <span class="sec-label sl-e">Built to last. Built for someone.</span>
   </div>
   <div class="grid g2">
-    <div class="card reveal stagger-1" style="background:#f0ece5">
+    <a class="card clickable reveal stagger-1" href="https://github.com/satbarseghyan/Library-Management" target="_blank" style="background:#f0ece5;text-decoration:none;color:inherit">
       <div class="carr">&#x2197;</div>
       <div class="card-pad">
         <div class="ctrack sl-e">Engineering</div>
@@ -270,8 +321,8 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
           <span class="ctag">Data Structures</span><span class="ctag">GitHub</span>
         </div>
       </div>
-    </div>
-    <div class="card reveal stagger-2" style="background:#f0ece5">
+    </a>
+    <div class="card static reveal stagger-2" style="background:#f0ece5">
       <div class="card-pad">
         <span class="cbadge bx">In production</span>
         <div class="ctrack sl-e">Engineering</div>
@@ -291,9 +342,8 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
     <span class="sec-label sl-u">Then I build something people actually want to use.</span>
   </div>
   <div class="grid g1">
-    <div class="card wide reveal-scale" style="padding:0">
+    <div class="card wide static reveal-scale" style="padding:0">
       <div class="card-pad">
-        <div class="carr">&#x2197;</div>
         <span class="cbadge bd">DesignLab / UX Foundations / 7 weeks</span>
         <div class="ctrack sl-u">Design &amp; Product / Featured</div>
         <div class="ctitle">Wayfarer / Full UX Redesign</div>
@@ -327,8 +377,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
     </div>
   </div>
   <div class="grid g2" style="margin-top:1px;border-top:none">
-    <div class="card reveal stagger-1">
-      <div class="carr">&#x2197;</div>
+    <div class="card static reveal stagger-1">
       <div class="card-pad">
         <span class="cbadge bc">Software Design / CSCI 230</span>
         <div class="ctrack sl-u">Design &amp; Product</div>
@@ -340,8 +389,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
         </div>
       </div>
     </div>
-    <div class="card reveal stagger-2">
-      <div class="carr">&#x2197;</div>
+    <div class="card static reveal stagger-2">
       <div class="card-pad">
         <div class="ctrack sl-u">Design &amp; Product</div>
         <div class="ctitle">AI-Art Competition / End-to-End</div>
@@ -362,29 +410,41 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
     <div class="skgrid">
       <div class="skcol">
         <div class="sklabel">Languages</div>
-        <div class="skitem">Python</div><div class="skitem">R</div>
-        <div class="skitem">C++</div><div class="skitem">SQL</div>
+        <div class="skitem">Python</div>
+        <div class="skitem">R</div>
+        <div class="skitem">C++</div>
+        <div class="skitem">SQL</div>
+        <div class="skitem">HTML / CSS</div>
       </div>
       <div class="skcol">
         <div class="sklabel">Data &amp; ML</div>
-        <div class="skitem">Pandas / Statsmodels</div>
-        <div class="skitem">Transformers</div>
+        <div class="skitem">Pandas</div>
+        <div class="skitem">Statsmodels</div>
+        <div class="skitem">NumPy</div>
         <div class="skitem">Tableau</div>
+        <div class="skitem">ggplot2</div>
+        <div class="skitem">PennyLane</div>
         <div class="skitem">Time Series</div>
       </div>
       <div class="skcol">
-        <div class="sklabel">Design</div>
+        <div class="sklabel">Design &amp; Creative</div>
         <div class="skitem">Figma</div>
-        <div class="skitem">Adobe Creative Cloud</div>
+        <div class="skitem">Adobe Illustrator</div>
+        <div class="skitem">Adobe Photoshop</div>
+        <div class="skitem">Adobe Premiere Pro</div>
         <div class="skitem">UX Research</div>
         <div class="skitem">Prototyping</div>
+        <div class="skitem">Wireframing</div>
       </div>
       <div class="skcol">
-        <div class="sklabel">Workflow</div>
+        <div class="sklabel">Workflow &amp; Tools</div>
         <div class="skitem">Git / GitHub</div>
         <div class="skitem">Jira</div>
         <div class="skitem">Slack</div>
         <div class="skitem">Agile</div>
+        <div class="skitem">ArcGIS</div>
+        <div class="skitem">R Studio</div>
+        <div class="skitem">VS Code</div>
       </div>
     </div>
   </div>
@@ -403,7 +463,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
       <div class="acrow"><span class="acl">Degree</span><span class="acv">B.S. Computer Science</span></div>
       <div class="acrow"><span class="acl">School</span><span class="acv">St. Olaf College</span></div>
       <div class="acrow"><span class="acl">Minors</span><span class="acv">Film / Stats &amp; Data Science</span></div>
-      <div class="acrow"><span class="acl">GitHub</span><span class="acv"><a href="https://github.com/satbarseghian" target="_blank">github.com/satbarseghian</a></span></div>
+      <div class="acrow"><span class="acl">GitHub</span><span class="acv"><a href="https://github.com/satbarseghyan" target="_blank">github.com/satbarseghyan</a></span></div>
       <div class="acrow"><span class="acl">LinkedIn</span><span class="acv"><a href="https://www.linkedin.com/in/sat-barseghyan22/" target="_blank">linkedin.com/in/sat-barseghyan22</a></span></div>
       <div class="acrow"><span class="acl">Email</span><span class="acv"><a href="mailto:satbarseghian@gmail.com">satbarseghian@gmail.com</a></span></div>
     </div>
@@ -415,7 +475,7 @@ footer{background:var(--black);border-top:1px solid #0f0f0f;padding:1.25rem 3rem
   <div class="contact-inner reveal">
     <div class="contact-hed">LET'S<br><span>WORK.</span></div>
     <div class="clinks">
-      <a class="cbtn" href="https://github.com/satbarseghian" target="_blank">GitHub &#x2197;</a>
+      <a class="cbtn" href="https://github.com/satbarseghyan" target="_blank">GitHub &#x2197;</a>
       <a class="cbtn" href="https://www.linkedin.com/in/sat-barseghyan22/" target="_blank">LinkedIn &#x2197;</a>
       <a class="cbtn" href="tel:+15076499587">+1 507 649 9587</a>
       <a class="cbtn p" href="mailto:satbarseghian@gmail.com">Get in touch &#x2197;</a>
