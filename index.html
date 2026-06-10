@@ -195,6 +195,25 @@ footer{background:var(--black);border-top:1px solid #141414;padding:1.25rem 3rem
 @keyframes lineIn{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:translateY(0)}}
 @keyframes chipIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
+.wc-browser{width:340px;flex-shrink:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.12)}
+.wc-bar{background:#e8e8e8;padding:7px 10px;display:flex;align-items:center;gap:8px}
+.wc-dots{display:flex;gap:4px}.wc-dots span{width:8px;height:8px;border-radius:50%;background:#ccc}
+.wc-dots span:nth-child(1){background:#ff5f57}.wc-dots span:nth-child(2){background:#ffbd2e}.wc-dots span:nth-child(3){background:#28c840}
+.wc-url{font-family:'DM Mono',monospace;font-size:.5rem;color:#888;background:#fff;padding:3px 8px;border-radius:4px;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.wc-screen{height:200px;overflow:hidden;position:relative;background:#fff}
+.wc-page{padding:.7rem .8rem;font-family:'DM Sans',sans-serif}
+.wc-header{background:#1a1a2e;padding:.5rem .7rem;margin:-.7rem -.8rem .7rem;text-align:center}
+.wc-logo{font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:#fff;letter-spacing:.05em}
+.wc-sub{font-size:.45rem;color:#aaa;margin-top:1px}
+.wc-section-label{font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:.35rem}
+.wc-fixture{font-size:.55rem;color:#333;padding:.3rem .4rem;background:#f8f8f8;margin-bottom:2px;border-radius:2px;display:flex;align-items:center;justify-content:space-between;opacity:0;transform:translateX(-8px);transition:opacity .4s,transform .4s}
+.wc-fixture.wc-visible{opacity:1;transform:translateX(0)}
+.wc-time{font-family:'DM Mono',monospace;font-size:.44rem;color:#888;white-space:nowrap;margin-left:.4rem}
+.wc-table{font-size:.5rem;width:100%}
+.wc-th{display:grid;grid-template-columns:16px 1fr 20px 24px;gap:4px;padding:2px 4px;font-family:'DM Mono',monospace;font-size:.44rem;color:#999;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #eee}
+.wc-tr{display:grid;grid-template-columns:16px 1fr 20px 24px;gap:4px;padding:3px 4px;border-bottom:1px solid #f5f5f5;color:#444;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+.wc-tr.wc-visible{opacity:1;transform:translateY(0)}
+.wc-cursor{position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(37,99,235,.5);pointer-events:none;transition:top .6s cubic-bezier(.4,0,.2,1),left .6s cubic-bezier(.4,0,.2,1);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-scale{opacity:0;transform:scale(.97);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
@@ -322,15 +341,61 @@ footer{background:var(--black);border-top:1px solid #141414;padding:1.25rem 3rem
         </div>
       </div>
     </a>
-    <div class="card static reveal stagger-2" style="background:#f0ece5">
-      <div class="card-pad">
-        <span class="cbadge bx">In production</span>
+    <a class="card clickable reveal stagger-2" href="https://world-cup-bracket-mcjm.onrender.com/" target="_blank" style="background:#f0ece5;text-decoration:none;color:inherit;padding:0">
+      <div class="carr">&#x2197;</div>
+      <div class="card-pad" style="padding-bottom:1.25rem">
+        <span class="cbadge bc">Live / World Cup 2026</span>
         <div class="ctrack sl-e">Engineering</div>
-        <div class="ctitle">More projects in development</div>
-        <p class="cdesc">CS and GenAI projects actively being built. Reach out if you would like an early look at what is in progress.</p>
-        <div class="ctags"><span class="ctag">Coming soon</span></div>
+        <div class="ctitle">The World Cup Gazette</div>
+        <p class="cdesc">Live football tracker for the 2026 World Cup. Real fixture data, group standings for all 12 groups, and flag icons for all 48 nations. Pulls live data from football-data.org and displays it cleanly in a newspaper-style layout.</p>
+        <div class="ctags">
+          <span class="ctag">Python</span><span class="ctag">Flask</span>
+          <span class="ctag">HTML / CSS</span><span class="ctag">REST API</span><span class="ctag">Live Data</span>
+        </div>
       </div>
-    </div>
+      <div class="stage" style="padding:1.5rem 1rem;justify-content:center;position:relative;overflow:hidden">
+        <div class="wc-browser">
+          <div class="wc-bar">
+            <div class="wc-dots"><span></span><span></span><span></span></div>
+            <div class="wc-url">world-cup-bracket-mcjm.onrender.com</div>
+          </div>
+          <div class="wc-screen">
+            <div class="wc-page">
+              <div class="wc-header">
+                <div class="wc-logo">The World Cup Gazette</div>
+                <div class="wc-sub">Est. 2026 &middot; 48 Nations &middot; 104 Matches</div>
+              </div>
+              <div class="wc-section-label">Upcoming Fixtures</div>
+              <div class="wc-fixture wc-fix-1">
+                <span class="wc-flag">🇲🇽</span> Mexico vs South Africa <span class="wc-flag">🇿🇦</span>
+                <span class="wc-time">Jun 11 &middot; 7:00 PM</span>
+              </div>
+              <div class="wc-fixture wc-fix-2">
+                <span class="wc-flag">🇰🇷</span> Korea Republic vs Czechia <span class="wc-flag">🇨🇿</span>
+                <span class="wc-time">Jun 12 &middot; 2:00 AM</span>
+              </div>
+              <div class="wc-fixture wc-fix-3">
+                <span class="wc-flag">🇨🇦</span> Canada vs Bosnia <span class="wc-flag">🇧🇦</span>
+                <span class="wc-time">Jun 12 &middot; 7:00 PM</span>
+              </div>
+              <div class="wc-fixture wc-fix-4">
+                <span class="wc-flag">🇺🇸</span> USA vs Paraguay <span class="wc-flag">🇵🇾</span>
+                <span class="wc-time">Jun 13 &middot; 1:00 AM</span>
+              </div>
+              <div class="wc-section-label" style="margin-top:.6rem">Group Standings</div>
+              <div class="wc-table">
+                <div class="wc-th"><span>#</span><span>Team</span><span>P</span><span>Pts</span></div>
+                <div class="wc-tr"><span>1</span><span>🇨🇿 Czechia</span><span>0</span><span>0</span></div>
+                <div class="wc-tr"><span>2</span><span>🇲🇽 Mexico</span><span>0</span><span>0</span></div>
+                <div class="wc-tr"><span>3</span><span>🇿🇦 South Africa</span><span>0</span><span>0</span></div>
+                <div class="wc-tr"><span>4</span><span>🇰🇷 Korea Republic</span><span>0</span><span>0</span></div>
+              </div>
+            </div>
+            <div class="wc-cursor"></div>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
 </div>
 </div>
@@ -493,6 +558,35 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
 }, {threshold:0.07});
 document.querySelectorAll('.reveal, .reveal-scale').forEach(r => obs.observe(r));
+
+// World Cup Gazette mockup animation
+function runWCAnimation(){
+  const fixes=['.wc-fix-1','.wc-fix-2','.wc-fix-3','.wc-fix-4'];
+  const rows=document.querySelectorAll('.wc-tr');
+  const cursor=document.querySelector('.wc-cursor');
+  const screen=document.querySelector('.wc-screen');
+  if(!cursor||!screen) return;
+  const sr=screen.getBoundingClientRect();
+  fixes.forEach((s,i)=>{
+    setTimeout(()=>{const el=document.querySelector(s);if(el) el.classList.add('wc-visible');},400+i*280);
+  });
+  rows.forEach((r,i)=>{setTimeout(()=>r.classList.add('wc-visible'),1600+i*150);});
+  const pts=[{t:'18%',l:'60%'},{t:'35%',l:'45%'},{t:'55%',l:'70%'},{t:'72%',l:'38%'},{t:'18%',l:'60%'}];
+  let pi=0;
+  function moveCursor(){
+    if(!pts[pi]) return;
+    cursor.style.top=pts[pi].t; cursor.style.left=pts[pi].l;
+    pi=(pi+1)%pts.length;
+    setTimeout(moveCursor,1400);
+  }
+  cursor.style.top='50%'; cursor.style.left='50%';
+  setTimeout(moveCursor,600);
+}
+const wcObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){runWCAnimation();wcObs.disconnect();}});
+},{threshold:0.3});
+const wcCard=document.querySelector('.wc-browser');
+if(wcCard) wcObs.observe(wcCard);
 </script>
 </body>
 </html>
